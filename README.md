@@ -3,6 +3,9 @@
 Differences between original repository and fork:
 
 * Original WIDERFace dataset annotations from GitHub [releases page](https://github.com/clibdev/WiderFace-Evaluation/releases). (🔥)
+* The [val_bbx_gt_v2.py](val_bbx_gt_v2.py) script for adding 3 additional columns to the
+  [wider_face_val_bbx_gt.txt](ground_truth/wider_face_val_bbx_gt.txt) file, indicating whether each image is included
+  in the Easy, Medium, or Hard evaluation categories.
 * Installation with [requirements.txt](requirements.txt) file.
 * The following deprecations and warnings has been fixed:
   * DeprecationWarning: 'np.float' is a deprecated alias for builtin 'float'.
@@ -20,7 +23,7 @@ Differences between original repository and fork:
 | wider_hard_val.mat           | [GitHub](https://github.com/clibdev/WiderFace-Evaluation/releases/latest/download/wider_hard_val.mat)           | bb1af19dc5bc4dd9517dd8ae8096326c68175f2c3411763bdd4f23fa98638b78 |
 | wider_face_val.mat           | [GitHub](https://github.com/clibdev/WiderFace-Evaluation/releases/latest/download/wider_face_val.mat)           | 1dfe6a9853950f9dde256b5e8bb75d8f272e6bc02a15ae1968f5a9b883f458cb |
 | wider_face_val_bbx_gt.txt    | [GitHub](https://github.com/clibdev/WiderFace-Evaluation/releases/latest/download/wider_face_val_bbx_gt.txt)    | 5ca83488f72758ca4826c35212610a8abf04a7af7b17eb407d6284007baba3b6 |
-| wider_face_val_gt.txt        | [GitHub](https://github.com/clibdev/WiderFace-Evaluation/releases/latest/download/wider_face_val_gt.txt)        | bb19c548fbe81c9b459b53f6d5ed8286f5fd6e97a9c7c0edbd5ad64a6900f26c |
+| wider_face_val_bbx_gt_v2.txt | [GitHub](https://github.com/clibdev/WiderFace-Evaluation/releases/latest/download/wider_face_val_bbx_gt_v2)     | a666f0ae8c9e18a6056bb4c2462f39deb7c22aa4b7591e78ba7c1c784adb2b92 |
 | wider_face_test.mat          | [GitHub](https://github.com/clibdev/WiderFace-Evaluation/releases/latest/download/wider_face_test.mat)          | 5efe15956d675ebc738bd4e9e249ca18d4a41866b5c40aa87c48225656636895 |
 | wider_face_test_filelist.txt | [GitHub](https://github.com/clibdev/WiderFace-Evaluation/releases/latest/download/wider_face_test_filelist.txt) | 5ce69938c5149eff5ab814d737f9095c129fe42a86e672c94024f86fc879ae6d |
 | wider_face_train.mat         | [GitHub](https://github.com/clibdev/WiderFace-Evaluation/releases/latest/download/wider_face_train.mat)         | 49fe14265426fbd5e4a8355f91717150fa26986029545fc7af20ea642f71d6fa |
