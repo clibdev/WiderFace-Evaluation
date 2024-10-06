@@ -1,18 +1,9 @@
-"""
-WiderFace evaluation code
-author: wondervictor
-mail: tianhengcheng@gmail.com
-copyright@wondervictor
-"""
-
 import os
 import tqdm
-import pickle
 import argparse
 import numpy as np
 from scipy.io import loadmat
 from bbox import bbox_overlaps
-from IPython import embed
 
 
 def get_gt_boxes(gt_dir):
@@ -32,51 +23,6 @@ def get_gt_boxes(gt_dir):
     easy_gt_list = easy_mat['gt_list']
 
     return facebox_list, event_list, file_list, hard_gt_list, medium_gt_list, easy_gt_list
-
-
-def get_gt_boxes_from_txt(gt_path, cache_dir):
-
-    cache_file = os.path.join(cache_dir, 'gt_cache.pkl')
-    if os.path.exists(cache_file):
-        f = open(cache_file, 'rb')
-        boxes = pickle.load(f)
-        f.close()
-        return boxes
-
-    f = open(gt_path, 'r')
-    state = 0
-    lines = f.readlines()
-    lines = list(map(lambda x: x.rstrip('\r\n'), lines))
-    boxes = {}
-    print(len(lines))
-    f.close()
-    current_boxes = []
-    current_name = None
-    for line in lines:
-        if state == 0 and '--' in line:
-            state = 1
-            current_name = line
-            continue
-        if state == 1:
-            state = 2
-            continue
-
-        if state == 2 and '--' in line:
-            state = 1
-            boxes[current_name] = np.array(current_boxes).astype('float32')
-            current_name = line
-            current_boxes = []
-            continue
-
-        if state == 2:
-            box = [float(x) for x in line.split(' ')[:4]]
-            current_boxes.append(box)
-            continue
-
-    f = open(cache_file, 'wb')
-    pickle.dump(boxes, f)
-    f.close()
-    return boxes
 
 
 def read_pred_file(filepath):
@@ -235,7 +181,6 @@ def evaluation(pred, gt_path, iou_thresh=0.5):
             img_list = file_list[i][0]
             pred_list = pred[event_name]
             sub_gt_list = gt_list[i][0]
-            # img_pr_info_list = np.zeros((len(img_list), thresh_num, 2))
             gt_bbx_list = facebox_list[i][0]
 
             for j in range(len(img_list)):
@@ -271,22 +216,9 @@ def evaluation(pred, gt_path, iou_thresh=0.5):
 
 
 if __name__ == '__main__':
-
     parser = argparse.ArgumentParser()
-    parser.add_argument('-p', '--pred')
-    parser.add_argument('-g', '--gt', default='/Users/Vic/Downloads/eval_tools/ground_truth/')
+    parser.add_argument('-p', '--pred', default='results/')
+    parser.add_argument('-g', '--gt', default='ground_truth/')
 
     args = parser.parse_args()
     evaluation(args.pred, args.gt)
-
-
-
-
-
-
-
-
-
-
-
-
