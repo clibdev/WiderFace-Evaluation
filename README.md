@@ -3,9 +3,8 @@
 Differences between original repository and fork:
 
 * Original WIDERFace dataset annotations from GitHub [releases page](https://github.com/clibdev/WiderFace-Evaluation/releases). (🔥)
-* The [val_bbx_gt_v2.py](val_bbx_gt_v2.py) script for adding 3 additional columns to the
-  [wider_face_val_bbx_gt.txt](ground_truth/wider_face_val_bbx_gt.txt) file, indicating whether each image is included
-  in the Easy, Medium, or Hard evaluation categories.
+* The [val_bbx_gt_v2.py](val_bbx_gt_v2.py) script for adding 3 additional columns to the 'wider_face_val_bbx_gt.txt'
+  file, indicating whether each image is included in the Easy, Medium, or Hard evaluation categories.
 * Installation with [requirements.txt](requirements.txt) file.
 * The following deprecations and warnings has been fixed:
   * DeprecationWarning: 'np.float' is a deprecated alias for builtin 'float'.
