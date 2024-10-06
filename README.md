@@ -34,9 +34,9 @@ pip install -r requirements.txt
 
 # WIDERFace Evaluation
 
-* Run prediction on validation set and save results in the `results` directory.
-* From releases page download `wider_easy_val.mat`, `wider_medium_val.mat`, `wider_hard_val.mat`,
-  and `wider_face_val.mat` file to `ground_truth` directory.
+* Run predictions on the validation set and store the results in the `results` directory.
+* Download the `wider_easy_val.mat`, `wider_medium_val.mat`, `wider_hard_val.mat`, and `wider_face_val.mat` files
+  from the releases page and save them to the `ground_truth` directory.
 * Build extension:
 
 ```shell
